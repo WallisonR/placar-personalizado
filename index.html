@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placar Personalizado para OBS</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="placar-container" id="placarContainer">
+        <div class="time time-casa">
+            <div class="logo-container">
+                <img id="logoCasa" src="" alt="Time Casa">
+            </div>
+            <div class="info-time">
+                <div id="nomeCasa" class="nome-time">Time Casa</div>
+            </div>
+        </div>
+
+        <div class="placar">
+            <div class="placar-valor">
+                <span id="golsCasa">0</span>
+                <span class="separador">x</span>
+                <span id="golsVisitante">0</span>
+            </div>
+        </div>
+
+        <div class="time time-visitante">
+            <div class="info-time">
+                <div id="nomeVisitante" class="nome-time">Time Visitante</div>
+            </div>
+            <div class="logo-container">
+                <img id="logoVisitante" src="" alt="Time Visitante">
+            </div>
+        </div>
+
+        <div class="tempo-container">
+            <span id="tempoJogo">1º Tempo: 00:00</span>
+        </div>
+
+        <div class="status-container">
+            <span id="statusPartida">Ao vivo</span>
+        </div>
+    </div>
+
+    <button class="toggle-controls" id="toggleControls">+</button>
+
+    <div class="controles" id="painelControle">
+        <h3>Painel de Controle</h3>
+        <div class="form-group">
+            <label for="inputNomeCasa">Time Casa:</label>
+            <input type="text" id="inputNomeCasa" value="Time Casa">
+        </div>
+        <div class="form-group">
+            <label for="inputLogoCasa">URL Logo Casa:</label>
+            <input type="text" id="inputLogoCasa" placeholder="URL da imagem">
+        </div>
+        <div class="form-group">
+            <label for="inputNomeVisitante">Time Visitante:</label>
+            <input type="text" id="inputNomeVisitante" value="Time Visitante">
+        </div>
+        <div class="form-group">
+            <label for="inputLogoVisitante">URL Logo Visitante:</label>
+            <input type="text" id="inputLogoVisitante" placeholder="URL da imagem">
+        </div>
+        <div class="form-group">
+            <label for="selectTempo">Tempo:</label>
+            <select id="selectTempo">
+                <option value="1">1º Tempo</option>
+                <option value="2">2º Tempo</option>
+                <option value="Intervalo">Intervalo</option>
+                <option value="Prorrogação">Prorrogação</option>
+                <option value="Pênaltis">Pênaltis</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="cronometro">Cronômetro:</label>
+            <div style="display: flex; gap: 5px;">
+                <input type="text" id="cronometro" value="00:00" style="width: 60px;">
+                <button id="btnIniciarCronometro">Iniciar</button>
+                <button id="btnPausarCronometro">Pausar</button>
+                <button id="btnZerarCronometro">Zerar</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputStatus">Status:</label>
+            <input type="text" id="inputStatus" value="Ao vivo">
+        </div>
+        <div style="display: flex; gap: 10px; margin-top: 10px;">
+            <div>
+                <button id="btnGolCasa" class="btn-gol">Gol Casa +</button>
+                <button id="btnGolCasaMenos">Gol Casa -</button>
+            </div>
+            <div>
+                <button id="btnGolVisitante" class="btn-gol">Gol Visitante +</button>
+                <button id="btnGolVisitanteMenos">Gol Visitante -</button>
+            </div>
+        </div>
+        <div style="margin-top: 15px;">
+            <button id="btnAplicar">Aplicar Alterações</button>
+        </div>
+    </div>
+
+    <script src="js/script.js" defer></script>
+</body>
+</html>
