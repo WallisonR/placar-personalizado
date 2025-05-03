@@ -7,39 +7,40 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="placar-container" id="placarContainer">
-        <div class="time time-casa">
-            <div class="logo-container">
-                <img id="logoCasa" src="" alt="Time Casa">
+    <!-- Contêiner principal para o placar e o tempo -->
+    <div class="main-container">
+        <!-- Contêiner do placar -->
+        <div class="placar-container" id="placarContainer">
+            <div class="time time-casa">
+                <div class="logo-container">
+                    <img id="logoCasa" src="" alt="Logo do Time Casa">
+                </div>
+                <div class="info-time">
+                    <div id="nomeCasa" class="nome-time">Time Casa</div>
+                </div>
             </div>
-            <div class="info-time">
-                <div id="nomeCasa" class="nome-time">Time Casa</div>
+
+            <div class="placar">
+                <div class="placar-valor">
+                    <span id="golsCasa">0</span>
+                    <img class="separador" src="assets/img/logo-bl-zerofundo.png" alt="Logo do Canal">
+                    <span id="golsVisitante">0</span>
+                </div>
+            </div>
+
+            <div class="time time-visitante">
+                <div class="info-time">
+                    <div id="nomeVisitante" class="nome-time">Time Visitante</div>
+                </div>
+                <div class="logo-container">
+                    <img id="logoVisitante" src="" alt="Logo do Time Visitante">
+                </div>
             </div>
         </div>
 
-        <div class="placar">
-            <div class="placar-valor">
-                <span id="golsCasa">0</span>
-                <span class="separador">x</span>
-                <span id="golsVisitante">0</span>
-            </div>
-        </div>
-
-        <div class="time time-visitante">
-            <div class="info-time">
-                <div id="nomeVisitante" class="nome-time">Time Visitante</div>
-            </div>
-            <div class="logo-container">
-                <img id="logoVisitante" src="" alt="Time Visitante">
-            </div>
-        </div>
-
+        <!-- Novo contêiner do tempo -->
         <div class="tempo-container">
             <span id="tempoJogo">1º Tempo: 00:00</span>
-        </div>
-
-        <div class="status-container">
-            <span id="statusPartida">Ao vivo</span>
         </div>
     </div>
 
@@ -52,16 +53,38 @@
             <input type="text" id="inputNomeCasa" value="Time Casa">
         </div>
         <div class="form-group">
-            <label for="inputLogoCasa">URL Logo Casa:</label>
-            <input type="text" id="inputLogoCasa" placeholder="URL da imagem">
+            <label for="inputLogoCasa">Logo Time Casa:</label>
+            <input type="file" id="inputLogoCasa" accept="image/*">
+        </div>
+        <div class="form-group">
+            <label for="selectCorLogoCasa">Cor de Fundo Time Casa:</label>
+            <select id="selectCorLogoCasa">
+                <option value="#0D4273">Azul</option>
+                <option value="#E21F26">Vermelho</option>
+                <option value="#000000">Preto</option>
+                <option value="#FFFFFF">Branco</option>
+                <option value="#12A454">Verde</option>
+                <option value="#FFD700">Amarelo</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="inputNomeVisitante">Time Visitante:</label>
             <input type="text" id="inputNomeVisitante" value="Time Visitante">
         </div>
         <div class="form-group">
-            <label for="inputLogoVisitante">URL Logo Visitante:</label>
-            <input type="text" id="inputLogoVisitante" placeholder="URL da imagem">
+            <label for="inputLogoVisitante">Logo Time Visitante:</label>
+            <input type="file" id="inputLogoVisitante" accept="image/*">
+        </div>
+        <div class="form-group">
+            <label for="selectCorLogoVisitante">Cor de Fundo Time Visitante:</label>
+            <select id="selectCorLogoVisitante">
+                <option value="#0D4273">Azul</option>
+                <option value="#E21F26">Vermelho</option>
+                <option value="#000000">Preto</option>
+                <option value="#FFFFFF">Branco</option>
+                <option value="#12A454">Verde</option>
+                <option value="#FFD700">Amarelo</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="selectTempo">Tempo:</label>
@@ -82,10 +105,7 @@
                 <button id="btnZerarCronometro">Zerar</button>
             </div>
         </div>
-        <div class="form-group">
-            <label for="inputStatus">Status:</label>
-            <input type="text" id="inputStatus" value="Ao vivo">
-        </div>
+    
         <div style="display: flex; gap: 10px; margin-top: 10px;">
             <div>
                 <button id="btnGolCasa" class="btn-gol">Gol Casa +</button>

@@ -13,7 +13,6 @@ const inputNomeCasa = document.getElementById('inputNomeCasa');
 const inputNomeVisitante = document.getElementById('inputNomeVisitante');
 const inputLogoCasa = document.getElementById('inputLogoCasa');
 const inputLogoVisitante = document.getElementById('inputLogoVisitante');
-const inputStatus = document.getElementById('inputStatus');
 const btnAplicar = document.getElementById('btnAplicar');
 
 // Mostrar/ocultar painel de controle
@@ -34,15 +33,38 @@ toggleControls.addEventListener('click', () => {
 btnAplicar.addEventListener('click', () => {
     nomeCasa.textContent = inputNomeCasa.value;
     nomeVisitante.textContent = inputNomeVisitante.value;
-    statusPartida.textContent = inputStatus.value;
-
-    if (inputLogoCasa.value) {
-        logoCasa.src = inputLogoCasa.value;
+    // Carregar a logo do Time Casa
+    const fileCasa = inputLogoCasa.files[0];
+    if (fileCasa) {
+        const readerCasa = new FileReader();
+        readerCasa.onload = (e) => {
+            logoCasa.src = e.target.result; // Define a imagem carregada como a logo
+        };
+        readerCasa.readAsDataURL(fileCasa);
     }
 
-    if (inputLogoVisitante.value) {
-        logoVisitante.src = inputLogoVisitante.value;
+    // Carregar a logo do Time Visitante
+    const fileVisitante = inputLogoVisitante.files[0];
+    if (fileVisitante) {
+        const readerVisitante = new FileReader();
+        readerVisitante.onload = (e) => {
+            logoVisitante.src = e.target.result; // Define a imagem carregada como a logo
+        };
+        readerVisitante.readAsDataURL(fileVisitante);
     }
+});
+
+// Elementos para controle de cor
+const selectCorLogoCasa = document.getElementById('selectCorLogoCasa');
+const selectCorLogoVisitante = document.getElementById('selectCorLogoVisitante');
+
+// Atualizar a cor de fundo das logos ao clicar no botão "Aplicar Alterações"
+btnAplicar.addEventListener('click', () => {
+    // Atualizar a cor de fundo da logo do Time Casa
+    logoCasa.parentElement.style.backgroundColor = selectCorLogoCasa.value;
+
+    // Atualizar a cor de fundo da logo do Time Visitante
+    logoVisitante.parentElement.style.backgroundColor = selectCorLogoVisitante.value;
 });
 
 // Atualizar marcador de gols

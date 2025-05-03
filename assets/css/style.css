@@ -1,3 +1,4 @@
+@import url('https://fonts.google.com/specimen/Bungee');
 :root {
     --vermelho: #E21F26;
     --azul: #0D4273;
@@ -18,11 +19,27 @@
 body {
     background-color: transparent;
     overflow: hidden;
+    display: flex; /* Ativa o Flexbox no body */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Garante que o body ocupe toda a altura da tela */
+    margin: 0; /* Remove margens padrão */
 }
 
+/* Contêiner principal para o placar e o tempo */
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espaçamento entre o placar e o tempo */
+    width: auto; /* Ajusta automaticamente ao conteúdo */
+    max-width: 800px;
+}
+
+/* Contêiner do placar */
 .placar-container {
-    width: 600px;
-    height: 100px;
+    width: 500px; /* Largura fixa */
+    height: 60px; /* Altura fixa */
     background: linear-gradient(90deg, var(--azul-escuro) 0%, var(--azul) 100%);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -32,13 +49,32 @@ body {
     overflow: hidden;
 }
 
+/* Contêiner do tempo */
+.tempo-container {
+    width: 140px;
+    height: 30px;
+    background-color: var(--branco);
+    color: var(--azul); /* Azul escuro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Rajdhani', sans-serif; /* Fonte Rajdhani */
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--dourado);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
 .placar-container::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 5px;
+    height: 2px;
     background: var(--vermelho);
 }
 
@@ -50,16 +86,17 @@ body {
 }
 
 .logo-container {
-    width: 60px;
-    height: 60px;
-    background-color: var(--branco);
-    border-radius: 8px;
+    width: 55px;
+    height: 55px;
+    background-color: var(--branco); /* Cor padrão */
+    border-radius: 0; /* Remove as bordas arredondadas */
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--dourado);
+    border: 1px solid var(--dourado);
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease; /* Transição suave para a mudança de cor */
 }
 
 .logo-container img {
@@ -92,63 +129,48 @@ body {
 }
 
 .nome-time {
+    width: 100px; /* Define uma largura fixa para os nomes */
+    text-align: center;
+    overflow: hidden; /* Esconde o texto que ultrapassar os limites */
+    text-overflow: ellipsis; /* Adiciona "..." ao final do texto longo */
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
     color: var(--branco);
-    font-size: 18px;
+    font-size: 35px;
     font-weight: bold;
-    margin-bottom: 5px;
-    max-width: 150px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    font-family: 'Bungee', sans-serif; /* Fonte Bungee */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0px; /* Aumenta o espaçamento entre as letras */
 }
 
 .placar {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--branco);
+    background-color: var(--branco); /* Fundo branco */
+    color: var(--azul-escuro); /* Números em azul escuro */
     font-size: 32px;
     font-weight: bold;
+    font-family: 'Copperplate', serif; /* Fonte Copperplate com fallback */
     width: 120px;
     position: relative;
-    background-color: var(--azul-escuro);
     border-left: 2px solid var(--dourado);
     border-right: 2px solid var(--dourado);
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0; /* Remove as bordas arredondadas */
 }
 
-.tempo-container {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--vermelho);
-    color: var(--branco);
-    padding: 5px 15px;
-    border-radius: 0 0 10px 10px;
-    font-size: 14px;
-    font-weight: bold;
+.placar-valor {
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-bottom: 2px solid var(--dourado);
-    border-left: 2px solid var(--dourado);
-    border-right: 2px solid var(--dourado);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    gap: 5px; /* Espaçamento entre os números e a imagem */
+    font-size: 40px; /* Aumenta o tamanho dos números */
+    font-weight: bold; /* Garante que os números fiquem em negrito */
 }
 
-.status-container {
-            position: absolute;
-            bottom: 7px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            color: var(--dourado);
-            font-size: 12px;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-        }
+.separador {
+    width: 45px; /* Largura da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+}
 
 .gol-animation {
             animation: golPulse 1s ease-in-out;
@@ -178,7 +200,7 @@ body {
     border: 2px solid var(--dourado);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     z-index: 1000;
-    width: 300px;
+    width: 320px;
     display: none;
     backdrop-filter: blur(5px);
     color: var(--branco);
