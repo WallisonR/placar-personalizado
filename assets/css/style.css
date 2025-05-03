@@ -171,6 +171,29 @@ body {
     height: auto; /* Mantém a proporção da imagem */
 }
 
+.toggle-controls {
+    position: fixed; /* Fixa o botão em uma posição específica na tela */
+    top: 20px; /* Ajusta a distância do topo */
+    right: 20px; /* Ajusta a distância da borda direita */
+    z-index: 1001; /* Garante que o botão fique acima de outros elementos */
+    background-color: var(--azul); /* Cor de fundo */
+    color: var(--branco); /* Cor do texto */
+    border: 2px solid var(--dourado); /* Borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 10px 15px; /* Espaçamento interno */
+    cursor: pointer; /* Mostra o cursor de clique */
+    font-size: 16px; /* Tamanho do texto */
+    font-weight: bold; /* Texto em negrito */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra */
+    transition: all 0.2s ease; /* Transição suave para hover */
+}
+
+.toggle-controls:hover {
+    background-color: #083257; /* Cor de fundo ao passar o mouse */
+    transform: translateY(-2px); /* Eleva o botão ao passar o mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
+}
+
 .gol-animation {
             animation: golPulse 1s ease-in-out;
         }
