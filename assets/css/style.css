@@ -43,7 +43,7 @@ body {
     background: linear-gradient(90deg, var(--azul-escuro) 0%, var(--azul) 100%);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    border: 2px solid var(--dourado);
+    border: 2px solid var(--branco); /* Borda branca */
     display: flex;
     position: relative;
     overflow: hidden;
@@ -51,7 +51,7 @@ body {
 
 /* Contêiner do tempo */
 .tempo-container {
-    width: 140px;
+    width: 100px;
     height: 30px;
     background-color: var(--branco);
     color: var(--azul); /* Azul escuro */
@@ -64,7 +64,7 @@ body {
     font-family: 'Rajdhani', sans-serif; /* Fonte Rajdhani */
     text-align: center;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    border: 2px solid var(--dourado);
+    border: 2px solid var(--branco); /* Borda branca */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
@@ -93,7 +93,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--dourado);
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s ease; /* Transição suave para a mudança de cor */
@@ -153,8 +152,8 @@ body {
     font-family: 'Copperplate', serif; /* Fonte Copperplate com fallback */
     width: 120px;
     position: relative;
-    border-left: 2px solid var(--dourado);
-    border-right: 2px solid var(--dourado);
+    border-left: 2px solid var(--branco); /* Borda branca */
+    border-right: 2px solid var(--branco); /* Borda branca */
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     border-radius: 0; /* Remove as bordas arredondadas */
 }
@@ -168,7 +167,7 @@ body {
 }
 
 .separador {
-    width: 45px; /* Largura da imagem */
+    width: 25px; /* Largura da imagem */
     height: auto; /* Mantém a proporção da imagem */
 }
 

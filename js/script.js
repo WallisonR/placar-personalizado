@@ -119,11 +119,15 @@ function atualizarTempoJogo() {
     let textoTempo;
 
     if (tempoSelecionado === '1') {
-        textoTempo = '1º Tempo';
+        textoTempo = '1ºT';
     } else if (tempoSelecionado === '2') {
-        textoTempo = '2º Tempo';
+        textoTempo = '2ºT';
+    } else if (tempoSelecionado === '1P') {
+        textoTempo = '1ºT´P'; // Primeiro tempo da prorrogação
+    } else if (tempoSelecionado === '2P') {
+        textoTempo = '2ºT´P'; // Segundo tempo da prorrogação
     } else {
-        textoTempo = tempoSelecionado; // Intervalo, Prorrogação ou Pênaltis
+        textoTempo = tempoSelecionado; // Intervalo ou Pênaltis
     }
 
     if (tempoSelecionado !== 'Intervalo' && tempoSelecionado !== 'Pênaltis') {
