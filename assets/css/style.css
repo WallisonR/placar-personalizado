@@ -17,7 +17,7 @@
 }
 
 body {
-    background-color: transparent;
+    background-color: #00FF00; /* Verde puro para chroma key */
     overflow: hidden;
     display: flex; /* Ativa o Flexbox no body */
     justify-content: center; /* Centraliza horizontalmente */
