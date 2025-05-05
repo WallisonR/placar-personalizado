@@ -40,7 +40,10 @@
 
         <!-- Novo contêiner do tempo -->
         <div class="tempo-container">
-            <span id="tempoJogo">1ºT: 00:00</span>
+            <div class="cronometro-box">
+                <span id="cronometro">00:00</span>
+            </div>
+            <div class="tempo-box" id="tempoJogo"></div>
         </div>
     </div>
 
@@ -100,7 +103,6 @@
         <div class="form-group">
             <label for="cronometro">Cronômetro:</label>
             <div style="display: flex; gap: 5px;">
-                <input type="text" id="cronometro" value="00:00" style="width: 60px;">
                 <button id="btnIniciarCronometro">Iniciar</button>
                 <button id="btnPausarCronometro">Pausar</button>
                 <button id="btnZerarCronometro">Zerar</button>

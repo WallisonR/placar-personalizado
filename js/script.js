@@ -110,8 +110,9 @@ const btnIniciarCronometro = document.getElementById('btnIniciarCronometro');
 const btnPausarCronometro = document.getElementById('btnPausarCronometro');
 const btnZerarCronometro = document.getElementById('btnZerarCronometro');
 const selectTempo = document.getElementById('selectTempo');
-let cronometroInterval;
+let cronometroInterval = null;
 let segundos = 0;
+let inicioCronometro = null; // Armazena o timestamp do início do cronômetro
 
 // Atualizar o tempo de jogo no placar
 function atualizarTempoJogo() {
@@ -119,51 +120,91 @@ function atualizarTempoJogo() {
     let textoTempo;
 
     if (tempoSelecionado === '1') {
-        textoTempo = '1ºT';
+        textoTempo = '1º';
     } else if (tempoSelecionado === '2') {
-        textoTempo = '2ºT';
+        textoTempo = '2º';
     } else if (tempoSelecionado === '1P') {
-        textoTempo = '1ºT´P'; // Primeiro tempo da prorrogação
+        textoTempo = '1ºP'; // Primeiro tempo da prorrogação
     } else if (tempoSelecionado === '2P') {
-        textoTempo = '2ºT´P'; // Segundo tempo da prorrogação
+        textoTempo = '2ºP'; // Segundo tempo da prorrogação
     } else {
         textoTempo = tempoSelecionado; // Intervalo ou Pênaltis
     }
 
+    const tempoBox = document.getElementById('tempoJogo');
+    const cronometro = document.getElementById('cronometro');
+
     if (tempoSelecionado !== 'Intervalo' && tempoSelecionado !== 'Pênaltis') {
-        tempoJogo.textContent = `${textoTempo}: ${document.getElementById('cronometro').value}`;
+        tempoBox.textContent = textoTempo; // Exibe o tempo na nova caixa
+        tempoBox.style.display = 'flex'; // Mostra a tempo-box
+        cronometro.style.display = 'block'; // Mostra o cronômetro
     } else {
-        tempoJogo.textContent = textoTempo;
+        tempoBox.textContent = ''; // Limpa a nova caixa
+        tempoBox.style.display = 'none'; // Oculta a tempo-box
+        cronometro.textContent = textoTempo; // Exibe "Intervalo" ou "Pênaltis" no lugar do cronômetro
+        segundos = 0; // Reseta os segundos
     }
 }
+
+function atualizarCronometro() {
+    if (!inicioCronometro) {
+        return; // Interrompe a execução se o cronômetro foi zerado
+    }
+
+    const agora = new Date();
+    const diferenca = Math.floor((agora - inicioCronometro) / 1000); // Calcula a diferença em segundos
+    const minutos = Math.floor(diferenca / 60);
+    const segundosRestantes = diferenca % 60;
+
+    // Atualiza o valor do cronômetro
+    const cronometro = document.getElementById('cronometro');
+    cronometro.textContent = `${minutos.toString().padStart(2, '0')}:${segundosRestantes.toString().padStart(2, '0')}`;
+
+    // Continua chamando a função para garantir que o cronômetro funcione em segundo plano
+    if (cronometroInterval) {
+        requestAnimationFrame(atualizarCronometro);
+    }
+}
+
+// Atualizar o cronômetro e tempo ao carregar a página
+document.addEventListener('DOMContentLoaded', () => {
+    atualizarTempoJogo(); // Atualiza o tempo de jogo ao abrir o projeto
+});
 
 // Iniciar o cronômetro
 btnIniciarCronometro.addEventListener('click', () => {
     if (!cronometroInterval) {
-        cronometroInterval = setInterval(() => {
-            segundos++;
-            const minutos = Math.floor(segundos / 60);
-            const segundosRestantes = segundos % 60;
-            document.getElementById('cronometro').value = `${minutos.toString().padStart(2, '0')}:${segundosRestantes.toString().padStart(2, '0')}`;
-            atualizarTempoJogo(); // Atualizar o tempo no placar
-        }, 1000);
+        inicioCronometro = new Date() - segundos * 1000; // Ajusta o início com base no tempo já decorrido
+        cronometroInterval = true; // Marca que o cronômetro está ativo
+        requestAnimationFrame(atualizarCronometro); // Usa requestAnimationFrame para atualizar o cronômetro
     }
 });
 
 // Pausar o cronômetro
 btnPausarCronometro.addEventListener('click', () => {
-    clearInterval(cronometroInterval);
-    cronometroInterval = null;
+    cronometroInterval = null; // Para o cronômetro
+
+    // Calcula o tempo decorrido até o momento da pausa
+    const agora = new Date();
+    segundos = Math.floor((agora - inicioCronometro) / 1000);
 });
 
 // Zerar o cronômetro
 btnZerarCronometro.addEventListener('click', () => {
-    clearInterval(cronometroInterval);
+    // Para o cronômetro
     cronometroInterval = null;
     segundos = 0;
-    document.getElementById('cronometro').value = '00:00';
-    atualizarTempoJogo(); // Atualizar o tempo no placar
+    inicioCronometro = null;
+
+    // Atualiza o cronômetro na interface principal
+    const cronometro = document.getElementById('cronometro');
+    cronometro.textContent = '00:00';
 });
 
 // Atualizar o tempo no placar ao mudar o select de tempo
 selectTempo.addEventListener('change', atualizarTempoJogo);
+
+// Atualizar o cronômetro e tempo ao carregar a página
+document.addEventListener('DOMContentLoaded', () => {
+    atualizarTempoJogo(); // Atualiza o tempo de jogo ao abrir o projeto
+});

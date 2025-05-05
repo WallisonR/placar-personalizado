@@ -1,4 +1,5 @@
 @import url('https://fonts.google.com/specimen/Bungee');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 :root {
     --vermelho: #E21F26;
     --azul: #0D4273;
@@ -47,25 +48,53 @@ body {
     display: flex;
     position: relative;
     overflow: hidden;
+    margin-bottom: 0px; /* Reduz o espaçamento entre o placar e o cronômetro */
 }
 
 /* Contêiner do tempo */
 .tempo-container {
-    width: 100px;
-    height: 30px;
-    background-color: var(--branco);
-    color: var(--azul); /* Azul escuro */
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 2px; /* Espaçamento entre o cronômetro e a nova caixa */
+    color: var(--azul); /* Azul escuro */
     border-radius: 10px;
-    font-size: 14px;
+    font-size: 20px; /* Ajuste o tamanho da fonte */
     font-weight: bold;
-    font-family: 'Rajdhani', sans-serif; /* Fonte Rajdhani */
+    font-family: 'Anton', sans-serif; /* Fonte Anton */
     text-align: center;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    border: 2px solid var(--branco); /* Borda branca */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+}
+
+.cronometro-box {
+    background-color: var(--azul);
+    color: var(--branco); /* Azul escuro */
+    padding: 12px;
+    border-radius: 8px; /* Bordas arredondadas em todos os lados */
+    font-size: 25px; /* Ajuste o tamanho da fonte */
+    font-weight: bold;
+    font-family: 'Anton', sans-serif; /* Fonte Anton */
+    text-align: center;
+    border: 2px solid var(--azul); /* Borda branca */
+    margin-right: 0px; /* Espaçamento de 2px entre as caixas */
+}
+
+.tempo-box {
+    background-color: var(--vermelho);
+    color: var(--branco); /* Azul escuro */
+    padding: 2px 6px;
+    border-radius: 5px; /* Bordas arredondadas em todos os lados */
+    font-size: 18px; /* Mesmo tamanho da fonte do cronômetro */
+    font-weight: bold;
+   /* font-family: 'Anton', sans-serif; /* Fonte Anton */
+    text-align: center;
+    border: 2px solid var(--vermelho); /* Borda branca */
+    min-width: 30px; /* Define uma largura mínima para a nova caixa */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .placar-container::after {
