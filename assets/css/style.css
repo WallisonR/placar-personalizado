@@ -57,15 +57,15 @@ body {
     align-items: center;
     justify-content: center;
     gap: 2px; /* Espaçamento entre o cronômetro e a nova caixa */
-    color: var(--azul); /* Azul escuro */
-    border-radius: 10px;
-    font-size: 20px; /* Ajuste o tamanho da fonte */
+    background-color: transparent; /* Torna o contêiner transparente */
+    box-shadow: none; /* Remove o sombreamento do contêiner */
+    border-radius: 0; /* Remove bordas arredondadas do contêiner */
+    padding: 0; /* Remove o preenchimento interno */
+    font-size: 20px; /* Ajuste do tamanho da fonte */
     font-weight: bold;
     font-family: 'Anton', sans-serif; /* Fonte Anton */
     text-align: center;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    padding: 10px;
+    text-shadow: none; /* Remove a sombra do texto */
 }
 
 .cronometro-box {
