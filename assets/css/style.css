@@ -18,7 +18,7 @@
 }
 
 body {
-    background-color: #00FF00; /* Verde puro para chroma key */
+    background-color: #AA00FF; /* Verde puro para chroma key */
     overflow: hidden;
     display: flex; /* Ativa o Flexbox no body */
     justify-content: center; /* Centraliza horizontalmente */
@@ -43,7 +43,7 @@ body {
     height: 60px; /* Altura fixa */
     background: linear-gradient(90deg, var(--azul-escuro) 0%, var(--azul) 100%);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: none; /* Remove o sombreamento */
     border: 2px solid var(--branco); /* Borda branca */
     display: flex;
     position: relative;
