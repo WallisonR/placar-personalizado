@@ -18,80 +18,76 @@
 }
 
 body {
-    background-color: #AA00FF; /* Verde puro para chroma key */
+    background-color: #AA00FF;
     overflow: hidden;
-    display: flex; /* Ativa o Flexbox no body */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    height: 100vh; /* Garante que o body ocupe toda a altura da tela */
-    margin: 0; /* Remove margens padrão */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    margin: 0;
 }
 
-/* Contêiner principal para o placar e o tempo */
 .main-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Espaçamento entre o placar e o tempo */
-    width: auto; /* Ajusta automaticamente ao conteúdo */
+    gap: 10px;
+    width: auto;
     max-width: 800px;
 }
 
-/* Contêiner do placar */
 .placar-container {
-    width: 500px; /* Largura fixa */
-    height: 60px; /* Altura fixa */
+    width: 500px;
+    height: 60px;
     background: linear-gradient(90deg, var(--azul-escuro) 0%, var(--azul) 100%);
     border-radius: 10px;
-    box-shadow: none; /* Remove o sombreamento */
-    border: 2px solid var(--branco); /* Borda branca */
+    box-shadow: none;
+    border: 2px solid var(--branco);
     display: flex;
     position: relative;
     overflow: hidden;
-    margin-bottom: 0px; /* Reduz o espaçamento entre o placar e o cronômetro */
+    margin-bottom: 0px;
 }
 
-/* Contêiner do tempo */
 .tempo-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2px; /* Espaçamento entre o cronômetro e a nova caixa */
-    background-color: transparent; /* Torna o contêiner transparente */
-    box-shadow: none; /* Remove o sombreamento do contêiner */
-    border-radius: 0; /* Remove bordas arredondadas do contêiner */
-    padding: 0; /* Remove o preenchimento interno */
-    font-size: 20px; /* Ajuste do tamanho da fonte */
+    gap: 2px;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    font-size: 20px;
     font-weight: bold;
-    font-family: 'Anton', sans-serif; /* Fonte Anton */
+    font-family: 'Anton', sans-serif;
     text-align: center;
-    text-shadow: none; /* Remove a sombra do texto */
+    text-shadow: none;
 }
 
 .cronometro-box {
     background-color: var(--azul);
-    color: var(--branco); /* Azul escuro */
+    color: var(--branco);
     padding: 12px;
-    border-radius: 8px; /* Bordas arredondadas em todos os lados */
-    font-size: 25px; /* Ajuste o tamanho da fonte */
+    border-radius: 8px;
+    font-size: 25px;
     font-weight: bold;
-    font-family: 'Anton', sans-serif; /* Fonte Anton */
+    font-family: 'Anton', sans-serif;
     text-align: center;
-    border: 2px solid var(--azul); /* Borda branca */
-    margin-right: 0px; /* Espaçamento de 2px entre as caixas */
+    border: 2px solid var(--azul);
+    margin-right: 0px;
 }
 
 .tempo-box {
     background-color: var(--vermelho);
-    color: var(--branco); /* Azul escuro */
+    color: var(--branco);
     padding: 2px 6px;
-    border-radius: 5px; /* Bordas arredondadas em todos os lados */
-    font-size: 18px; /* Mesmo tamanho da fonte do cronômetro */
+    border-radius: 5px;
+    font-size: 18px;
     font-weight: bold;
-   /* font-family: 'Anton', sans-serif; /* Fonte Anton */
     text-align: center;
-    border: 2px solid var(--vermelho); /* Borda branca */
-    min-width: 30px; /* Define uma largura mínima para a nova caixa */
+    border: 2px solid var(--vermelho);
+    min-width: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -117,14 +113,14 @@ body {
 .logo-container {
     width: 55px;
     height: 55px;
-    background-color: var(--branco); /* Cor padrão */
-    border-radius: 0; /* Remove as bordas arredondadas */
+    background-color: var(--branco);
+    border-radius: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease; /* Transição suave para a mudança de cor */
+    transition: background-color 0.3s ease;
 }
 
 .logo-container img {
@@ -140,14 +136,14 @@ body {
 .time-visitante {
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* Alinha os elementos à direita */
+    justify-content: flex-end;
     padding: 10px;
     flex: 1;
 }
 
 .time-visitante .logo-container {
-    margin-left: 15px; /* Espaçamento entre a logo e o texto */
-    margin-right: 0; /* Remove qualquer margem à direita */
+    margin-left: 15px;
+    margin-right: 0;
 }
 
 .info-time {
@@ -157,42 +153,42 @@ body {
 }
 
 .nome-time {
-    width: 100px; /* Define uma largura fixa para os nomes */
+    width: 100px;
     text-align: center;
-    overflow: hidden; /* Esconde o texto que ultrapassar os limites */
-    text-overflow: ellipsis; /* Adiciona "..." ao final do texto longo */
-    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     color: var(--branco);
     font-size: 35px;
     font-weight: bold;
-    font-family: 'Bungee', sans-serif; /* Fonte Bungee */
+    font-family: 'Bungee', sans-serif;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    letter-spacing: 0px; /* Aumenta o espaçamento entre as letras */
+    letter-spacing: 0px;
 }
 
 .placar {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--branco); /* Fundo branco */
-    color: var(--azul-escuro); /* Números em azul escuro */
+    background-color: var(--branco);
+    color: var(--azul-escuro);
     font-size: 32px;
     font-weight: bold;
-    font-family: 'Copperplate', serif; /* Fonte Copperplate com fallback */
+    font-family: 'Copperplate', serif;
     width: 120px;
     position: relative;
-    border-left: 2px solid var(--branco); /* Borda branca */
-    border-right: 2px solid var(--branco); /* Borda branca */
+    border-left: 2px solid var(--branco);
+    border-right: 2px solid var(--branco);
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    border-radius: 0; /* Remove as bordas arredondadas */
+    border-radius: 0;
 }
 
 .placar-valor {
     display: flex;
     align-items: center;
-    gap: 5px; /* Espaçamento entre os números e a imagem */
-    font-size: 40px; /* Aumenta o tamanho dos números */
-    font-weight: bold; /* Garante que os números fiquem em negrito */
+    gap: 5px;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .separador {
@@ -201,26 +197,26 @@ body {
 }
 
 .toggle-controls {
-    position: fixed; /* Fixa o botão em uma posição específica na tela */
-    top: 20px; /* Ajusta a distância do topo */
-    right: 20px; /* Ajusta a distância da borda direita */
-    z-index: 1001; /* Garante que o botão fique acima de outros elementos */
-    background-color: var(--azul); /* Cor de fundo */
-    color: var(--branco); /* Cor do texto */
-    border: 2px solid var(--dourado); /* Borda */
-    border-radius: 5px; /* Bordas arredondadas */
-    padding: 10px 15px; /* Espaçamento interno */
-    cursor: pointer; /* Mostra o cursor de clique */
-    font-size: 16px; /* Tamanho do texto */
-    font-weight: bold; /* Texto em negrito */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra */
-    transition: all 0.2s ease; /* Transição suave para hover */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    background-color: var(--azul);
+    color: var(--branco);
+    border: 2px solid var(--dourado);
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
 }
 
 .toggle-controls:hover {
-    background-color: #083257; /* Cor de fundo ao passar o mouse */
-    transform: translateY(-2px); /* Eleva o botão ao passar o mouse */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
+    background-color: #083257;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .gol-animation {
