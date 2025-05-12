@@ -16,6 +16,9 @@ const btnAplicar = document.getElementById('btnAplicar');
 const toggleControls = document.getElementById('toggleControls');
 const painelControle = document.getElementById('painelControle');
 
+const inputCronometro = document.getElementById('inputCronometro');
+const btnEditarCronometro = document.getElementById('btnEditarCronometro');
+
 toggleControls.addEventListener('click', () => {
     if (painelControle.style.display === 'none' || painelControle.style.display === '') {
         painelControle.style.display = 'block';
@@ -149,6 +152,22 @@ function atualizarCronometro() {
         requestAnimationFrame(atualizarCronometro);
     }
 }
+
+btnEditarCronometro.addEventListener('click', () => {
+    const valor = inputCronometro.value.trim();
+    const regex = /^[0-5]?\d:[0-5]\d$/;
+
+    if (regex.test(valor)) {
+        const [minutos, segundosRestantes] = valor.split(':').map(Number);
+        segundos = minutos * 60 + segundosRestantes;
+        inicioCronometro = new Date() - segundos * 1000;
+
+        const cronometro = document.getElementById('cronometro');
+        cronometro.textContent = valor;
+    } else {
+        alert('Por favor, insira um valor válido no formato MM:SS.');
+    }
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     atualizarTempoJogo();

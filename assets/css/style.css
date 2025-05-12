@@ -1,4 +1,4 @@
-@import url('https://fonts.google.com/specimen/Bungee');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 :root {
     --vermelho: #E21F26;
@@ -31,7 +31,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 1.5px;
     width: auto;
     max-width: 800px;
 }
@@ -53,7 +53,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2px;
+    gap: 0px;
     background-color: transparent;
     box-shadow: none;
     border-radius: 0;
@@ -70,13 +70,20 @@ body {
     color: var(--branco);
     padding: 12px;
     border-radius: 8px;
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 40px;
+    font-weight: 900;
     font-family: 'Anton', sans-serif;
     text-align: center;
-    border: 2px solid var(--azul);
+    border: 2px solid var(--branco);
     margin-right: 0px;
+    box-shadow: none;
+    position: relative;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 
 .tempo-box {
     background-color: var(--vermelho);
@@ -86,21 +93,43 @@ body {
     font-size: 18px;
     font-weight: bold;
     text-align: center;
-    border: 2px solid var(--vermelho);
+    border: 2px solid var(--branco);
     min-width: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: none;
 }
 
-.placar-container::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--vermelho);
+#inputCronometro {
+    width: 100px;
+    padding: 5px;
+    margin-right: 5px;
+    border: 1px solid var(--dourado);
+    border-radius: 5px;
+    background-color: rgba(4, 30, 60, 0.8);
+    color: var(--branco);
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#btnEditarCronometro {
+    background-color: var(--azul);
+    color: var(--branco);
+    border: 1px solid var(--dourado);
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+#btnEditarCronometro:hover {
+    background-color: #083257;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .time {
@@ -159,9 +188,9 @@ body {
     text-overflow: ellipsis;
     white-space: nowrap;
     color: var(--branco);
-    font-size: 35px;
-    font-weight: bold;
-    font-family: 'Bungee', sans-serif;
+    font-size: 40px;
+    font-weight: 900;
+    font-family: '', sans-serif;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     letter-spacing: 0px;
 }
@@ -173,8 +202,7 @@ body {
     background-color: var(--branco);
     color: var(--azul-escuro);
     font-size: 32px;
-    font-weight: bold;
-    font-family: 'Copperplate', serif;
+    font-weight: 900;
     width: 120px;
     position: relative;
     border-left: 2px solid var(--branco);
@@ -187,13 +215,22 @@ body {
     display: flex;
     align-items: center;
     gap: 5px;
-    font-size: 40px;
-    font-weight: bold;
+    font-size: 55px;
+    font-family: 'Arial', sans-serif;
+    font-weight: 900;
+    color: var(--azul-escuro);
+}
+
+#golsCasa, #golsVisitante {
+    font-family: 'Ariel', sans-serif;
+    font-size: 50px;
+    font-weight:;
+    color: var(--azul-escuro);
 }
 
 .separador {
-    width: 25px; /* Largura da imagem */
-    height: auto; /* Mantém a proporção da imagem */
+    width: 25px;
+    height: auto;
 }
 
 .toggle-controls {
@@ -239,8 +276,9 @@ body {
 
 .controles {
     position: fixed;
-    top: 10px;
+    top: 5px;
     right: 10px;
+    bottom: 5px;
     background-color: rgba(13, 66, 115, 0.9);
     padding: 15px;
     border-radius: 10px;
@@ -291,7 +329,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     margin-right: 5px;
-    margin-top: 5px;
+    margin-top: 2px;
     font-weight: bold;
     transition: all 0.2s ease;
 }
